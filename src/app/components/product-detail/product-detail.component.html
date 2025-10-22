@@ -1,0 +1,15 @@
+<div class="container mt-4" *ngIf="product">
+    <div class="row">
+        <div class="col-md-5 text-center">
+            <img [src]="product.image" alt="{{ product.title }}" class="img-fluid" width="300">
+        </div>
+        <div class="col-md-7">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.description }}</p>
+            <h4 class="text-success">Price: ${{ product.price }}</h4>
+            <button (click)="addToCart()" class="btn btn-primary mt-3">
+                🛒 Add to Cart
+            </button>
+        </div>
+    </div>
+</div>

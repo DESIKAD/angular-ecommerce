@@ -1,0 +1,34 @@
+<div class="card container mt-5 p-5" style="width: 500px;">
+    <h2 class="text-center">SIGNUP</h2>
+    <form [formGroup]="loginform">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name123@example.com"
+                formControlName="email" [ngClass]="{'is-invalid':this.fill && this.loginform.controls['email'].errors}">
+            <small *ngIf="this.fill && this.loginform.controls['email'].errors?.['required']  " class="error-mg">
+                Email must ...
+            </small>
+            <small *ngIf="this.fill && this.loginform.controls['email'].errors?.['email']  " class="error-mg">
+                Enter valid email
+            </small>
+
+        </div>
+
+        <label for="inputPassword5" class="form-label">Password</label>
+        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"
+            formControlName="password"
+            [ngClass]="{'is-invalid':this.fill && this.loginform.controls['password'].errors}">
+
+
+        <small *ngIf="this.fill && this.loginform.controls['password'].errors?.['required']" class="error-mg">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces,
+            special characters, or emoji.
+        </small>
+
+        <div class="row">
+            <div class="col-12 text-center mt-3">
+                <button class="btn btn-primary" type="submit" (click)="submit()">Submit form</button>
+            </div>
+        </div>
+    </form>
+</div>
